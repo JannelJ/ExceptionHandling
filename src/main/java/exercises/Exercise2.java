@@ -8,24 +8,29 @@ public class Exercise2 {
 
     public static int[] getUserInput() {
 
-        Scanner input = new Scanner(System.in);
-        System.out.println("Enter divisor: ");
-        int a = input.nextInt();
 
-        System.out.println("Enter dividend: ");
+        Scanner input = new Scanner(System.in);
+        int[] result = new int[2];
+        int a;
         int b;
 
-        try {
-            b = input.nextInt();
-        }
-        catch(InputMismatchException e) {
-            System.out.println("Invalid input. Please try again.");
+        while(true) {
+            try {
+                System.out.println("Enter divisor: ");
+                a = input.nextInt();
+                result[0] = a;
+
+                System.out.println("Enter dividend: ");
+                b = input.nextInt();
+                result[1] = b;
+
+            } catch (InputMismatchException e) {
+                System.err.println("Invalid input. Please try again.");
+                input.next();
+            }
+            return result;
         }
 
-        while (input.hasNextInt()) {
-
-        }
-        return result;
     }
 
 }
